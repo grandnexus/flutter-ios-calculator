@@ -1,0 +1,39 @@
+name: flutter_ios_calculator
+description: "Flutter iOS Calculator"
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  auto_size_text: ^3.0.0
+  font_awesome_flutter: ^10.7.0
+  modal_bottom_sheet: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mockito: ^5.4.4
+  build_runner: ^2.4.13
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: fonts/SF-Pro-Display-Medium.otf
+          weight: 500
+        - asset: fonts/SF-Pro-Display-Regular.otf
+          weight: 400
+        - asset: fonts/SF-Pro-Display-Light.otf
+          weight: 200
+        - asset: fonts/SF-Pro-Display-Thin.otf
+          weight: 100
