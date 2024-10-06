@@ -141,7 +141,7 @@ class CalculatorPageState extends State<CalculatorPage> {
   }
 
   /// Helper method to build a circular button with specific parameters.
-  CircularButton _buildCircularButton({
+  Widget _buildCircularButton({
     Key? key,
     required VoidCallback onPressed,
     String? text,
@@ -190,7 +190,7 @@ class CalculatorPageState extends State<CalculatorPage> {
   }
 
   /// Builds a row for a given currency, showing the output value and a button to select the currency.
-  Row _buildCurrencyRow(bool isTop) {
+  Widget _buildCurrencyRow(bool isTop) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -235,7 +235,7 @@ class CalculatorPageState extends State<CalculatorPage> {
   }
 
   /// Builds the grid of calculator buttons used to input numbers and operations.
-  Column _buildButtonGrid() {
+  Widget _buildButtonGrid() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
