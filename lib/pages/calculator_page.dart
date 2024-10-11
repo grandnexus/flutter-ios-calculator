@@ -67,13 +67,16 @@ class CalculatorPageState extends State<CalculatorPage> {
   void _appendOutput(String value) {
     setState(() {
       String output = isTopOutput ? topOutput : bottomOutput;
-      // Replace the output if it's the default '0' or '0.00', otherwise append the new value.
-      if (output == '0' || output == '0.00' && value != '.') {
-        output = value;
+      String result = output;
+
+      // Replace the output if it's the default '0' or '0.00' and value is not a decimal point
+      if ((output == '0' || output == '0.00') && value != '.') {
+        result = value;
       } else if (!(output.contains('.') && value == '.')) {
-        output += value;
+        result = output + value;
       }
-      _updateOutput(output); // Update the output based on the new value.
+
+      _updateOutput(result); // Update the output based on the new value.
     });
   }
 
@@ -141,7 +144,7 @@ class CalculatorPageState extends State<CalculatorPage> {
   }
 
   /// Helper method to build a circular button with specific parameters.
-  CircularButton _buildCircularButton({
+  Widget _buildCircularButton({
     Key? key,
     required VoidCallback onPressed,
     String? text,
@@ -190,7 +193,7 @@ class CalculatorPageState extends State<CalculatorPage> {
   }
 
   /// Builds a row for a given currency, showing the output value and a button to select the currency.
-  Row _buildCurrencyRow(bool isTop) {
+  Widget _buildCurrencyRow(bool isTop) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -235,7 +238,7 @@ class CalculatorPageState extends State<CalculatorPage> {
   }
 
   /// Builds the grid of calculator buttons used to input numbers and operations.
-  Column _buildButtonGrid() {
+  Widget _buildButtonGrid() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
