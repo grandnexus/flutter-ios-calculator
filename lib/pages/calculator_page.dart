@@ -67,13 +67,16 @@ class CalculatorPageState extends State<CalculatorPage> {
   void _appendOutput(String value) {
     setState(() {
       String output = isTopOutput ? topOutput : bottomOutput;
-      // Replace the output if it's the default '0' or '0.00', otherwise append the new value.
-      if (output == '0' || output == '0.00' && value != '.') {
-        output = value;
+      String result = output;
+
+      // Replace the output if it's the default '0' or '0.00' and value is not a decimal point
+      if ((output == '0' || output == '0.00') && value != '.') {
+        result = value;
       } else if (!(output.contains('.') && value == '.')) {
-        output += value;
+        result = output + value;
       }
-      _updateOutput(output); // Update the output based on the new value.
+
+      _updateOutput(result); // Update the output based on the new value.
     });
   }
 
